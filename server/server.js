@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require ("express"); //Hum Express package ko project mein load kar rahe hain.
+const cors = require("cors");
 
 const healthRoutes = require ('./routes/healthRoutes'); 
 
@@ -14,6 +15,10 @@ const app = express(); //Express ka application/server object create kar rahe ha
 // app.delete() 
 // --+
 // jaise routes isi app se banenge.
+
+app.use(cors());
+
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000; //Backend kis port par chalega, wo define kar rahe hain.
 
