@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "./services/api";
 
 function App() {
   const [message, setMessage] = useState("Checking backend...");
 
   useEffect(() => {
-    axios
+    api
       .get("http://localhost:5000/api/health")
       .then((response) => {
         setMessage(response.data.message);
